@@ -1,0 +1,16 @@
+spring :
+  datasource :
+    url : jdbc:h2:mem:librarydb;
+    driverClassName : org.h2.Driver
+    username : ibi
+    password :
+  h2:
+    console:
+      enabled: true
+  jpa :
+    database-platform : org.hibernate.dialect.H2Dialect
+    hibernate:
+      hbm2ddl:
+        auto: none
+  flyway:
+    baseline-on-migrate: true
