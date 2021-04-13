@@ -9,11 +9,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import static com.projet.library.prez.Constants.BOOK_BASE_URL;
-import static com.projet.library.prez.Constants.BOOK_URL_BY_NAME;
+import static com.projet.library.prez.Constants.*;
 
 @RestController
-
 @Slf4j
 public class BookController {
 
@@ -31,6 +29,10 @@ public class BookController {
         return new ResponseEntity<>(" BOOK is CREATED ", HttpStatus.CREATED);
     }
 
-
+    @PutMapping(BOOK_URL_BY_NAME)
+    public ResponseEntity<String> updateBooks(@PathVariable String author) {
+        bookService.updateBooksByAuthor(author);
+        return new ResponseEntity<>(" BOOKS IS UPDATED ", HttpStatus.ACCEPTED);
+    }
 
 }

@@ -17,4 +17,6 @@ public interface BookRepository extends JpaRepository<BookEntity, UUID> {
     //@Query("SELECT b FROM BOOK b WHERE (:name is null or b.name = :name) and (:author is null or b.author = :author)")
    List<BookEntity> findByNameAndAuthor( String name,String author);
 
+    List<BookEntity> findByAuthor( String author);
+
 }
