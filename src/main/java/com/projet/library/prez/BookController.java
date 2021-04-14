@@ -23,6 +23,12 @@ public class BookController {
         return ResponseEntity.ok(bookService.getBooks(searchCriteria));
     }
 
+    @GetMapping(BOOK_URL_BY_NAME)
+    public ResponseEntity getBookByName(@PathVariable String name) {
+        bookService.bookByName(name);
+        return ResponseEntity.ok(bookService.bookByName(name));
+    }
+
     @PostMapping(BOOK_BASE_URL)
     public ResponseEntity<String> addBook(@RequestBody BookEntity bookEntity) {
         bookService.addBook(bookEntity);
@@ -30,8 +36,8 @@ public class BookController {
     }
 
     @PutMapping(BOOK_URL_BY_NAME)
-    public ResponseEntity<String> updateBooks(@PathVariable String author) {
-        bookService.updateBooksByAuthor(author);
+    public ResponseEntity<String> updateBooks(@PathVariable String name) {
+        bookService.updateBooksByAuthor(name);
         return new ResponseEntity<>(" BOOKS IS UPDATED ", HttpStatus.ACCEPTED);
     }
 

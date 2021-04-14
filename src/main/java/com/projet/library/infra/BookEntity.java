@@ -22,6 +22,10 @@ public class BookEntity {
     private UUID id;
     private String name;
     private String author;
+    private CategoryBook Category;
     private String description;
-    private LocalDate dateCreation;
+    private int  edition;
+    private LocalDate creationDate;
+
+
 }
